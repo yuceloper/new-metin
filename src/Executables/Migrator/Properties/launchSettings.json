@@ -1,9 +1,9 @@
 {
     "$schema": "http://json.schemastore.org/launchsettings.json",
     "profiles": {
-        "Migrator": {
-            "commandName": "Project",
-            "commandLineArgs": "migrate --host localhost --port 3306 --user root --password supersecure.123"
-        }
+      "Migrator": {
+        "commandName": "Project",
+        "commandLineArgs": "migrate --host 193.164.6.186 --port 3306 --user root --password supersecure.123"
+      }
     }
 }
