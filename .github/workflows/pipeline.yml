@@ -107,9 +107,6 @@ jobs:
             type=ref,event=branch
             type=ref,event=tag
             type=raw,latest,enable=${{ github.ref == format('refs/heads/{0}', 'master') }}
-        permissions:
-          packages: write
-          contents: read
       - name: Build and push game image
         uses: docker/build-push-action@v4.1.1
         with:
@@ -118,9 +115,6 @@ jobs:
           push: true
           tags: ${{ steps.meta-game.outputs.tags }}
           labels: ${{ steps.meta-game.outputs.labels }}
-        permissions:
-          packages: write
-          contents: read
 
       # auth
       - name: Extract metadata (tags, labels) for Docker
@@ -133,9 +127,6 @@ jobs:
             type=ref,event=branch
             type=ref,event=tag
             type=raw,latest,enable=${{ github.ref == format('refs/heads/{0}', 'master') }}
-        permissions:
-          packages: write
-          contents: read
       - name: Build and push auth image
         uses: docker/build-push-action@v4.1.1
         with:
@@ -145,9 +136,6 @@ jobs:
           push: true
           tags: ${{ steps.meta-auth.outputs.tags }}
           labels: ${{ steps.meta-auth.outputs.labels }}
-        permissions:
-          packages: write
-          contents: read
 
       # migrator
       - name: Extract metadata (tags, labels) for Docker
@@ -160,9 +148,6 @@ jobs:
             type=ref,event=branch
             type=ref,event=tag
             type=raw,latest,enable=${{ github.ref == format('refs/heads/{0}', 'master') }}
-        permissions:
-          packages: write
-          contents: read
       - name: Build and push migrator image
         uses: docker/build-push-action@v4.1.1
         with:
@@ -172,6 +157,3 @@ jobs:
           push: true
           tags: ${{ steps.meta-migrator.outputs.tags }}
           labels: ${{ steps.meta-migrator.outputs.labels }}
-        permissions:
-          packages: write
-          contents: read
